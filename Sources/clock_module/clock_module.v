@@ -1,65 +1,89 @@
 module clock_module (
-    input  wire        clk_100mhz,  // 100 MHz from board crystal
-    input  wire        rst,         // reset, active HIGH
-    input  wire [1:0]  speed_sel,   // SW[1:0] clock speed select
-    input  wire        manual_step, // BTN0 single step
-    input  wire        hlt,         // halt signal from control unit
-    output reg         clk_out      // SAP system clock output
+    input  wire        clk_100mhz,
+    input  wire        rst,          // Active HIGH reset
+    input  wire [1:0]  speed_sel,
+    input  wire        manual_step,
+    input  wire        hlt,
+    input  wire        prog_mode,
+    output reg         clk_out
 );
 
-    // Number of 100MHz ticks for each half-period
-    // formula: 100_000_000 / (2 * target_hz) - 1
-    parameter CNT_1HZ   = 26'd49_999_999;  // gives 1 Hz
-    parameter CNT_10HZ  = 26'd4_999_999;   // gives 10 Hz
-    parameter CNT_100HZ = 26'd499_999;     // gives 100 Hz
-    parameter CNT_1KHZ  = 26'd49_999;      // gives 1 kHz
+    localparam CNT_1HZ   = 50_000_000 - 1;
+    localparam CNT_10HZ  =  5_000_000 - 1;
+    localparam CNT_100HZ =    500_000 - 1;
+    localparam CNT_1KHZ  =     50_000 - 1;
 
     reg [25:0] counter;
     reg [25:0] max_count;
     reg        auto_clk;
 
-    // Choose divider value based on switch setting
+    // Select clock speed
     always @(*) begin
         case (speed_sel)
-            2'b00 : max_count = CNT_1HZ;
-            2'b01 : max_count = CNT_10HZ;
-            2'b10 : max_count = CNT_100HZ;
-            2'b11 : max_count = CNT_1KHZ;
+            2'b00: max_count = CNT_1HZ;
+            2'b01: max_count = CNT_10HZ;
+            2'b10: max_count = CNT_100HZ;
+            2'b11: max_count = CNT_1KHZ;
         endcase
     end
 
-    // Clock divider - toggles auto_clk at selected speed
+    // Clock divider
     always @(posedge clk_100mhz) begin
+
         if (rst) begin
             counter  <= 26'd0;
             auto_clk <= 1'b0;
         end
+
         else if (counter >= max_count) begin
             counter  <= 26'd0;
-            auto_clk <= ~auto_clk;  // toggle to create clock
+            auto_clk <= ~auto_clk;
         end
+
         else begin
             counter <= counter + 1'b1;
         end
+
     end
 
-    // Detect rising edge of manual step button
-    // step_pulse goes high for exactly one 100MHz cycle
-    reg  btn_prev;
-    wire step_pulse = manual_step & ~btn_prev;
+    // ---------------------------------------------------
+    // Manual step button edge detector
+    // ---------------------------------------------------
+
+    reg btn_prev;
+
+    wire step_pulse;
+
+    assign step_pulse = manual_step & ~btn_prev;
 
     always @(posedge clk_100mhz) begin
-        if (rst) btn_prev <= 1'b0;
-        else     btn_prev <= manual_step;
+
+        if (rst)
+            btn_prev <= 1'b0;
+
+        else
+            btn_prev <= manual_step;
+
     end
 
-    // Final clock output
-    // If HLT is asserted the clock freezes (stays at last value)
+    // ---------------------------------------------------
+    // Clock freeze logic
+    // ---------------------------------------------------
+
+    wire clock_frozen;
+
+    assign clock_frozen = hlt | prog_mode;
+
     always @(posedge clk_100mhz) begin
+
         if (rst)
             clk_out <= 1'b0;
-        else if (!hlt)
+
+        else if (!clock_frozen)
             clk_out <= auto_clk | step_pulse;
+
+        // if frozen, hold previous value
+
     end
 
 endmodule
