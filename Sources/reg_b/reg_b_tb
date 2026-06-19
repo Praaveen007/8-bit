@@ -1,1 +1,95 @@
 
+`timescale 1ns/1ps
+
+module b_register_tb;
+
+    reg        clk;
+    reg        rst;
+    reg        BI;
+    reg [7:0]  bus_in;
+
+    wire [7:0] b_val;
+
+    // DUT
+    b_register uut (
+        .clk(clk),
+        .rst(rst),
+        .BI(BI),
+        .bus_in(bus_in),
+        .b_val(b_val)
+    );
+
+    // Clock Generation (10ns period)
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+
+    initial begin
+
+        // Initialize
+        rst    = 1;
+        BI     = 0;
+        bus_in = 8'h00;
+
+        // Reset
+        #10;
+        rst = 0;
+
+        // -------------------------
+        // Load 28 into B register
+        // -------------------------
+        BI     = 1;
+        bus_in = 8'd28;   // 1C
+        #10;
+
+        BI = 0;
+        #10;
+
+        // -------------------------
+        // Load 14 into B register
+        // -------------------------
+        BI     = 1;
+        bus_in = 8'd14;   // 0E
+        #10;
+
+        BI = 0;
+        #10;
+
+        // -------------------------
+        // Load 255 into B register
+        // -------------------------
+        BI     = 1;
+        bus_in = 8'd255;  // FF
+        #10;
+
+        BI = 0;
+        #10;
+
+        // -------------------------
+        // Hold value test
+        // -------------------------
+        bus_in = 8'd99;
+        #10;
+
+        // -------------------------
+        // Reset again
+        // -------------------------
+        rst = 1;
+        #10;
+
+        rst = 0;
+        #10;
+
+        $finish;
+
+    end
+
+    initial begin
+        $monitor(
+        "T=%0t rst=%b BI=%b bus_in=%h b_val=%h",
+        $time, rst, BI, bus_in, b_val
+        );
+    end
+
+endmodule
