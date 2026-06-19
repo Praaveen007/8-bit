@@ -1,1 +1,114 @@
+`timescale 1ns/1ps
 
+module a_register_tb;
+
+    reg        clk;
+    reg        rst;
+    reg        AI;
+    reg        AO;
+    reg [7:0]  bus_in;
+
+    wire [7:0] bus_out;
+    wire [7:0] a_val;
+
+    // DUT
+    a_register uut (
+        .clk(clk),
+        .rst(rst),
+        .AI(AI),
+        .AO(AO),
+        .bus_in(bus_in),
+        .bus_out(bus_out),
+        .a_val(a_val)
+    );
+
+    // Clock Generation (10ns period)
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+
+    initial begin
+
+        // Initialize
+        rst    = 1;
+        AI     = 0;
+        AO     = 0;
+        bus_in = 8'h00;
+
+        // Reset
+        #10;
+        rst = 0;
+
+        // -------------------------
+        // Load 28 into A register
+        // -------------------------
+        AI     = 1;
+        bus_in = 8'd28;
+        #10;
+
+        AI = 0;
+        #10;
+
+        // Put A onto bus
+        AO = 1;
+        #10;
+
+        AO = 0;
+        #10;
+
+        // -------------------------
+        // Load 14 into A register
+        // -------------------------
+        AI     = 1;
+        bus_in = 8'd14;
+        #10;
+
+        AI = 0;
+        #10;
+
+        // Put A onto bus
+        AO = 1;
+        #10;
+
+        AO = 0;
+        #10;
+
+        // -------------------------
+        // Load 255 into A register
+        // -------------------------
+        AI     = 1;
+        bus_in = 8'd255;
+        #10;
+
+        AI = 0;
+        #10;
+
+        // Put A onto bus
+        AO = 1;
+        #10;
+
+        AO = 0;
+        #10;
+
+        // -------------------------
+        // Apply Reset Again
+        // -------------------------
+        rst = 1;
+        #10;
+
+        rst = 0;
+        #10;
+
+        $finish;
+
+    end
+
+    initial begin
+        $monitor(
+        "T=%0t rst=%b AI=%b AO=%b bus_in=%h a_val=%h bus_out=%h",
+        $time, rst, AI, AO, bus_in, a_val, bus_out
+        );
+    end
+
+endmodule
