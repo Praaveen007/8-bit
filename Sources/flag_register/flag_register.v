@@ -1,13 +1,11 @@
 module flag_register(
 
-    input wire clk,
-    input wire rst,
+    input  wire       clk,
+    input  wire       rst,
+    input  wire       FE,
+    input  wire [1:0] flags_in,
 
-    input wire FE,
-
-    input wire [1:0] flags_in,
-
-    output reg [1:0] flags_out
+    output reg [1:0]  flags_out
 
 );
 
