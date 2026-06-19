@@ -8,6 +8,7 @@ The processor follows a shared-bus SAP architecture and extends the traditional 
 
 ---
 
+
 ## Key Features
 
 * 8-bit datapath
@@ -24,8 +25,8 @@ The processor follows a shared-bus SAP architecture and extends the traditional 
 * Control Unit
 * FPGA implementation on Spartan-7
 * Vivado simulation and synthesis
-
 ---
+<img width="1536" height="1024" alt="ChatGPT Image Jun 18, 2026, 04_54_40 PM" src="https://github.com/user-attachments/assets/8d5244a0-d54a-4ae3-a13e-26bdea95a819" />
 
 ## Target FPGA
 
@@ -104,16 +105,17 @@ T5:
 ALU Execution / Register Update
 
 ---
+<img width="1536" height="1024" alt="ChatGPT Image Jun 18, 2026, 05_34_18 PM" src="https://github.com/user-attachments/assets/22a9627b-3e68-4ea1-bd89-a8f7fcbd9e67" />
 
 ## Flags
 
-Carry Flag (C)
+* Carry Flag (C)
 
-Generated when arithmetic overflow occurs.
+* Generated when arithmetic overflow occurs.
 
-Zero Flag (Z)
+* Zero Flag (Z)
 
-Generated when ALU result equals zero.
+* Generated when ALU result equals zero.
 
 ---
 
@@ -157,14 +159,17 @@ Vivado Bitstream Generator
 
 ## Future Enhancements
 
-Conditional Branching
+* Conditional Branching
 
-Jump Instructions
+* Jump Instructions
 
-Memory Write Support
+* Memory Write Support
 
-UART Interface
+* UART Interface
 
-Custom Assembler
+* Custom Assembler
 
-Pipeline Architecture
+* Pipeline Architecture
+
+---
+
