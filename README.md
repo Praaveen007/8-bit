@@ -135,24 +135,24 @@ LED[15:13]    : Current Opcode
 
 ## Development Tools
 
-Vivado Design Suite
+*Vivado Design Suite
 
-Language:
+* Language:
 Verilog HDL
 
-Target Device:
+* Target Device:
 XC7S50-CSGA324-1
 
-Simulation:
+* Simulation:
 Vivado Simulator
 
-Synthesis:
+* Synthesis:
 Vivado Synthesis
 
-Implementation:
+* Implementation:
 Vivado Implementation Flow
 
-Bitstream Generation:
+* Bitstream Generation:
 Vivado Bitstream Generator
 
 ---
