@@ -1,9 +1,9 @@
 
 module control_unit (
     input  wire        clk,
-    input  wire        rst,       // active HIGH synchronous
+    input  wire        rst,       
     input  wire [3:0]  opcode,
-    input  wire [1:0]  flags,     // {carry, zero}
+    input  wire [1:0]  flags,     
 
     output reg         MI,
     output reg         RO,
