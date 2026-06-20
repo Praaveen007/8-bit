@@ -9,7 +9,7 @@ module flag_register_tb;
 
     wire [1:0] flags_out;
 
-    // DUT
+   
     flag_register uut (
         .clk(clk),
         .rst(rst),
@@ -18,7 +18,7 @@ module flag_register_tb;
         .flags_out(flags_out)
     );
 
-    // Clock generation (10ns period)
+  
     initial begin
         clk = 0;
         forever #5 clk = ~clk;
@@ -26,52 +26,37 @@ module flag_register_tb;
 
     initial begin
 
-        // Initialize
+      
         rst      = 1'b1;
         FE       = 1'b0;
         flags_in = 2'b00;
 
-        // Reset active
+       
         #20;
         rst = 1'b0;
 
-        // ----------------------
-        // Load Carry = 1, Zero = 0
-        // ----------------------
+        
         FE       = 1'b1;
         flags_in = 2'b10;
         #10;
 
-        // ----------------------
-        // Load Carry = 0, Zero = 1
-        // ----------------------
+        
         flags_in = 2'b01;
         #10;
 
-        // ----------------------
-        // Load Carry = 1, Zero = 1
-        // ----------------------
+        
         flags_in = 2'b11;
         #10;
 
-        // ----------------------
-        // Disable FE
-        // Output should hold value
-        // ----------------------
+      
         FE       = 1'b0;
         flags_in = 2'b00;
         #20;
 
-        // ----------------------
-        // Enable FE again
-        // ----------------------
         FE       = 1'b1;
         flags_in = 2'b00;
         #10;
 
-        // ----------------------
-        // Apply Reset
-        // ----------------------
         rst = 1'b1;
         #10;
 
