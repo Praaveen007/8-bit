@@ -9,7 +9,6 @@
 [![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](LICENSE)
 
 <br>
-<img width="1536" height="1024" alt="ChatGPT Image Jun 20, 2026, 04_26_37 AM" src="https://github.com/user-attachments/assets/e2306edd-489c-4814-b952-752163eab75c" />
 
 ## Overview
 
@@ -18,6 +17,7 @@ This project presents the design and implementation of an enhanced SAP (Simple-A
 The processor follows a shared-bus SAP architecture and extends the traditional SAP-1 design by integrating a 12-operation Arithmetic Logic Unit (ALU), Carry and Zero flag generation, programmable memory, and hardware visualization through LEDs and seven-segment displays.
 
 ---
+<img width="1536" height="1024" alt="ChatGPT Image Jun 20, 2026, 04_26_37 AM" src="https://github.com/user-attachments/assets/e2306edd-489c-4814-b952-752163eab75c" />
 
 
 ## Key Features
