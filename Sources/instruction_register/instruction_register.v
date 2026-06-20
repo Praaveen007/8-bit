@@ -6,8 +6,7 @@ module instruction_register (
     input  wire [7:0]  bus_in,
     output wire [3:0]  opcode,
     output wire [3:0]  operand,
-    output wire [7:0]  ir_out    // expose full IR for debug
-);
+    output wire [7:0]  ir_out);
     reg [7:0] ir;
 
     always @(posedge clk or posedge rst) begin
