@@ -189,6 +189,11 @@ Vivado Bitstream Generator
 
 ---
 
+## Output waveform
+<img width="1919" height="1011" alt="Screenshot 2026-06-20 003701 (1)" src="https://github.com/user-attachments/assets/707c8386-a5ee-419e-8711-31c05adda6ca" />
+<img width="1919" height="827" alt="Screenshot 2026-06-20 003717 (1)" src="https://github.com/user-attachments/assets/f4053b88-5aab-462c-a5a4-4c2a102ca9e8" />
+<img width="1919" height="1014" alt="Screenshot 2026-06-20 003710" src="https://github.com/user-attachments/assets/f97bb5f4-6675-4c0f-aeda-1a4e136b0015" />
+
 ## Future Enhancements
 
 * Conditional Branching
