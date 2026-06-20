@@ -197,7 +197,7 @@ Vivado Bitstream Generator
 
 ## Future Enhancements
 
-* Conditional Branching
+* Sensor Intergration
 
 * Jump Instructions
 
