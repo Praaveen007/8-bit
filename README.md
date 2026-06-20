@@ -19,7 +19,6 @@ The processor follows a shared-bus SAP architecture and extends the traditional 
 ---
 
 <img width="1536" height="1024" alt="ChatGPT Image Jun 20, 2026, 04_26_37 AM" src="https://github.com/user-attachments/assets/e2306edd-489c-4814-b952-752163eab75c" />
-
 <img width="1536" height="1024" alt="WhatsApp Image 2026-06-20 at 9 49 16 AM" src="https://github.com/user-attachments/assets/f11fbc53-70e3-48a5-849d-527048fd5679" />
 
 
