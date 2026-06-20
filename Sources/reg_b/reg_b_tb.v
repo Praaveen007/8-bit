@@ -10,7 +10,7 @@ module b_register_tb;
 
     wire [7:0] b_val;
 
-    // DUT
+   
     b_register uut (
         .clk(clk),
         .rst(rst),
@@ -19,7 +19,7 @@ module b_register_tb;
         .b_val(b_val)
     );
 
-    // Clock Generation (10ns period)
+    
     initial begin
         clk = 0;
         forever #5 clk = ~clk;
@@ -27,54 +27,40 @@ module b_register_tb;
 
     initial begin
 
-        // Initialize
+     
         rst    = 1;
         BI     = 0;
         bus_in = 8'h00;
 
-        // Reset
         #10;
         rst = 0;
 
-        // -------------------------
-        // Load 28 into B register
-        // -------------------------
         BI     = 1;
-        bus_in = 8'd28;   // 1C
+        bus_in = 8'd28;
         #10;
 
         BI = 0;
         #10;
 
-        // -------------------------
-        // Load 14 into B register
-        // -------------------------
+      
         BI     = 1;
-        bus_in = 8'd14;   // 0E
+        bus_in = 8'd14;   
         #10;
 
         BI = 0;
         #10;
 
-        // -------------------------
-        // Load 255 into B register
-        // -------------------------
+        
         BI     = 1;
-        bus_in = 8'd255;  // FF
+        bus_in = 8'd255; 
         #10;
 
         BI = 0;
         #10;
 
-        // -------------------------
-        // Hold value test
-        // -------------------------
         bus_in = 8'd99;
         #10;
 
-        // -------------------------
-        // Reset again
-        // -------------------------
         rst = 1;
         #10;
 
