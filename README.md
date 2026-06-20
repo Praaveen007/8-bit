@@ -166,7 +166,8 @@ ALU Execution / Register Update
 * LED[15:13]    : Current Opcode
 
 ---
-<img width="1641" height="838" alt="Screenshot 2026-06-20 012048" src="https://github.com/user-attachments/assets/f23033c8-604f-4dd0-9a1a-b8963934cf45" />
+<img width="1145" height="978" alt="image" src="https://github.com/user-attachments/assets/7b358ac0-bb2b-41b3-ba90-271c3b74109b" />
+
 
 ## Development Tools
 
