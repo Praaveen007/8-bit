@@ -1,5 +1,5 @@
 module input_module #(
-    parameter DEBOUNCE_CYCLES = 2_000_000   // override from tb: #(.DEBOUNCE_CYCLES(100))
+    parameter DEBOUNCE_CYCLES = 2_000_000   
 ) (
     input  wire        clk_100mhz,
     input  wire        rst,
@@ -13,9 +13,7 @@ module input_module #(
     output reg         write_done
 );
     localparam CTR_BITS = 21;
-    // ---------------------------------------------------
-    // Stage 1 : Synchronizer
-    // ---------------------------------------------------
+   
     reg btn_s1;
     reg btn_s2;
     always @(posedge clk_100mhz)
@@ -31,9 +29,7 @@ module input_module #(
             btn_s2 <= btn_s1;
         end
     end
-    // ---------------------------------------------------
-    // Stage 2 : Debounce
-    // ---------------------------------------------------
+  
     reg btn_stable;
     reg [CTR_BITS-1:0] deb_cnt;
     always @(posedge clk_100mhz)
@@ -56,9 +52,7 @@ module input_module #(
         else
             deb_cnt <= 0;
     end
-    // ---------------------------------------------------
-    // Stage 3 : Rising Edge Detect
-    // ---------------------------------------------------
+  
     reg btn_prev;
     wire write_pulse;
     assign write_pulse = btn_stable & ~btn_prev & prog_mode;
