@@ -5,7 +5,7 @@ module cpu_top (
     input  wire        BTN3,
     input  wire [15:0] SW,
 
-    // External memory bus
+
     output wire [3:0]  MEM_ADDR,
     output wire        MEM_RD,
     output wire        MEM_WR,
@@ -28,9 +28,7 @@ module cpu_top (
     wire        prog_mode = SW[14];
     wire        rst       = BTN1;
 
-    // =========================================================================
-    // Internal signals
-    // =========================================================================
+    
     wire        sap_clk;
     wire        HLT_sig;
 
@@ -46,7 +44,7 @@ module cpu_top (
     wire [2:0]  t_state;
     wire [7:0]  ir;
 
-    // Control signals
+
     wire MI, RO, RI, II, IO;
     wire CO, CE, CL;
     wire AI, AO, ALO, BI, OI, FE;
@@ -55,26 +53,21 @@ module cpu_top (
     reg [7:0] bus_reg;
 
     always @(*) begin
-        if      (CO)  bus_reg = {4'b0000, pc_val};   // PC â†’ bus
-        else if (RO)  bus_reg = MEM_DIN;              // RAM â†’ bus
-        else if (IO)  bus_reg = {4'b0000, operand};   // IR operand â†’ bus
-        else if (AO)  bus_reg = a_val;                // A â†’ bus
-        else if (ALO) bus_reg = alu_result;            // ALU â†’ bus
-        else          bus_reg = 8'h00;                 // idle
+        if      (CO)  bus_reg = {4'b0000, pc_val};   
+        else if (RO)  bus_reg = MEM_DIN;              
+        else if (IO)  bus_reg = {4'b0000, operand};   
+        else if (AO)  bus_reg = a_val;                
+        else if (ALO) bus_reg = alu_result;            
+        else          bus_reg = 8'h00;                 
     end
 
-    // =========================================================================
-    // External memory bus
-    // =========================================================================
     assign SAP_CLK  = sap_clk;
     assign MEM_ADDR = mar_addr;
     assign MEM_RD   = RO;
     assign MEM_WR   = RI;
     assign MEM_DOUT = a_val;
 
-    // =========================================================================
-    // Submodules â€” all receive bus_reg as input, never drive tristate
-    // =========================================================================
+  
 
     clock_module u_clk (
         .clk_100mhz  (CLK),
@@ -92,7 +85,7 @@ module cpu_top (
         .CO      (CO),
         .CL      (CL),
         .CE      (CE),
-        .bus_out (bus_reg),   // output onto bus (via mux above)
+        .bus_out (bus_reg),  
         .pc_val  (pc_val)
     );
 
@@ -180,7 +173,7 @@ module cpu_top (
         .t_state (t_state)
     );
 
-    // LEDs
+    
     assign LED[15:8] = prog_mode ? sw_data      : out_val;
     assign LED[7]    = prog_mode ? sw_addr[3]   : latched_flags[1];
     assign LED[6]    = prog_mode ? sw_addr[2]   : latched_flags[0];
