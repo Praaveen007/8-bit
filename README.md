@@ -198,7 +198,11 @@ Vivado Bitstream Generator
 <img width="1919" height="827" alt="Screenshot 2026-06-20 003717 (1)" src="https://github.com/user-attachments/assets/f4053b88-5aab-462c-a5a4-4c2a102ca9e8" />
 <img width="1919" height="1014" alt="Screenshot 2026-06-20 003710" src="https://github.com/user-attachments/assets/f97bb5f4-6675-4c0f-aeda-1a4e136b0015" />
 
-## current Advancement 
+## Design timing Summary
+<img width="1027" height="266" alt="WhatsApp Image 2026-06-20 at 1 56 41 PM" src="https://github.com/user-attachments/assets/0f694637-708b-40ed-bb0b-0b8f986bec71" />
+
+
+## Current Advancement 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/552b66c1-436e-4a42-9e6c-9c9eccad69aa" />
 
 
