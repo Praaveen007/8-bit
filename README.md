@@ -1,4 +1,14 @@
 # SAP-1+ Enhanced 8-Bit Processor on AMD Spartan-7 FPGA
+# 🖥️ 8-Bit SAP Computer on FPGA
+### Simple As Possible (SAP-1) Architecture — Implemented in Verilog HDL
+
+[![Verilog](https://img.shields.io/badge/HDL-Verilog--2001-blue?style=for-the-badge&logo=v&logoColor=white)](https://en.wikipedia.org/wiki/Verilog)
+[![FPGA](https://img.shields.io/badge/FPGA-Xilinx%20Spartan--7-orange?style=for-the-badge&logo=xilinx&logoColor=white)](https://www.xilinx.com/)
+[![Board](https://img.shields.io/badge/Board-Boolean%20XC7S50-red?style=for-the-badge)](https://www.realdigital.org/hardware/boolean)
+[![Tool](https://img.shields.io/badge/Tool-Vivado%202023-green?style=for-the-badge&logo=xilinx)](https://www.xilinx.com/products/design-tools/vivado.html)
+[![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](LICENSE)
+
+<br>
 
 ## Overview
 
@@ -37,6 +47,24 @@ XC7S50-CSGA324-1
 
 Vendor:
 AMD Xilinx Spartan-7
+
+---
+
+## 🧩 Module Summary
+
+| Module | File | Type | Description |
+|---|---|:---:|---|
+| **Top Level** | `sapp_computer.v` | Structural | Instantiates all modules, W-bus |
+| **ALU** | `alu.v` | Combinational | ADD / SUB, carry & zero flags |
+| **Program Counter** | `pc.v` | Sequential | 4-bit, increment / jump load |
+| **MAR** | `mar.v` | Sequential | Holds memory address for RAM |
+| **RAM** | `ram.v` | Sequential | 16×8 program + data memory |
+| **IR** | `ir.v` | Sequential | Splits opcode [7:4] + addr [3:0] |
+| **Register A** | `reg_a.v` | Sequential | Accumulator, drives W-bus |
+| **Register B** | `reg_b.v` | Sequential | Second ALU operand |
+| **Output Reg** | `out_reg.v` | Sequential | Latches result → 8 LEDs |
+| **Control Unit** | `control_unit.v` | FSM | Generates all control signals |
+| **Clock Divider** | `clk_div.v` | Sequential | 100 MHz → 1 Hz for LED demo |
 
 ---
 
@@ -121,21 +149,21 @@ ALU Execution / Register Update
 
 ## FPGA Outputs
 
-LED[7:0]      : Output Register
+* LED[7:0]      : Output Register
 
-LED[10:8]     : T-State Counter
+* LED[10:8]     : T-State Counter
 
-LED[11]       : Carry Flag
+* LED[11]       : Carry Flag
 
-LED[12]       : Zero Flag
+* LED[12]       : Zero Flag
 
-LED[15:13]    : Current Opcode
+* LED[15:13]    : Current Opcode
 
 ---
 
 ## Development Tools
 
-*Vivado Design Suite
+* Vivado Design Suite
 
 * Language:
 Verilog HDL
