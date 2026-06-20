@@ -93,18 +93,18 @@ AMD Xilinx Spartan-7
 
 ## ALU Operations
 
-ADD
-SUB
-AND
-XOR
-OR
-NOT
-INC
-DEC
-SHL
-SHR
-NAND
-NOR
+ADD,
+SUB,
+AND,
+XOR,
+OR,
+NOT,
+INC,
+DEC,
+SHL,
+SHR,
+NAND,
+NOR,
 
 ---
 
