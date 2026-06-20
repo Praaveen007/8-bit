@@ -9,8 +9,7 @@ module output_register (
     output reg  [7:0]  AN,          
     output reg  [6:0]  SEG,         
     output wire        DP,          
-    output wire [7:0]  out_val     
-);
+    output wire [7:0]  out_val);
 
     reg [7:0] out_reg;
 
