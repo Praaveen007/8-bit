@@ -1,14 +1,12 @@
 module clock_module #(
-    parameter SIM_MODE = 0    // Override to 1 from testbench via defparam
-) (
-    input  wire        clk_100mhz,
+    parameter SIM_MODE = 0) 
+    (input  wire        clk_100mhz,
     input  wire        rst,
     input  wire [1:0]  speed_sel,
     input  wire        manual_step,
     input  wire        hlt,
     input  wire        prog_mode,
-    output reg         clk_out
-);
+    output reg         clk_out);
 
   
     wire [25:0] CNT_1HZ   = SIM_MODE ? 26'd1 : 26'd49_999_999;
@@ -29,7 +27,7 @@ module clock_module #(
         endcase
     end
 
-    // Frequency divider
+    
     always @(posedge clk_100mhz) begin
         if (rst) begin
             counter  <= 26'd0;
