@@ -9,6 +9,7 @@
 [![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](LICENSE)
 
 <br>
+<img width="1536" height="1024" alt="ChatGPT Image Jun 20, 2026, 04_26_37 AM" src="https://github.com/user-attachments/assets/e2306edd-489c-4814-b952-752163eab75c" />
 
 ## Overview
 
@@ -160,6 +161,7 @@ ALU Execution / Register Update
 * LED[15:13]    : Current Opcode
 
 ---
+<img width="1641" height="838" alt="Screenshot 2026-06-20 012048" src="https://github.com/user-attachments/assets/f23033c8-604f-4dd0-9a1a-b8963934cf45" />
 
 ## Development Tools
 
