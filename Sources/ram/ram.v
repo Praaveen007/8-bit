@@ -27,22 +27,22 @@ module ram #(
         for (i = 0; i < 16; i = i + 1)
             mem[i] = 8'h00;
 
-        mem[4'h0] = 8'h1D;  // LDA 13  A = 1
-        mem[4'h1] = 8'hE0;  // OUT     â†’ 001
-        mem[4'h2] = 8'h1E;  // LDA 14  A = 1
-        mem[4'h3] = 8'hE0;  // OUT     â†’ 001
-        mem[4'h4] = 8'h1F;  // LDA 15  A = 2
-        mem[4'h5] = 8'hE0;  // OUT     â†’ 002
-        mem[4'h6] = 8'h2E;  // ADD 14  A = 2+1 = 3
-        mem[4'h7] = 8'hE0;  // OUT     â†’ 003
-        mem[4'h8] = 8'h2F;  // ADD 15  A = 3+2 = 5
-        mem[4'h9] = 8'hE0;  // OUT     â†’ 005
-        mem[4'hA] = 8'hF0;  // HLT
+        mem[4'h0] = 8'h1D;  
+        mem[4'h1] = 8'hE0;  
+        mem[4'h2] = 8'h1E;  
+        mem[4'h3] = 8'hE0;  
+        mem[4'h4] = 8'h1F;  
+        mem[4'h5] = 8'hE0;  
+        mem[4'h6] = 8'h2E; 
+        mem[4'h7] = 8'hE0;  
+        mem[4'h8] = 8'h2F;  
+        mem[4'h9] = 8'hE0;
+        mem[4'hA] = 8'hF0;  
         mem[4'hB] = 8'h00;
         mem[4'hC] = 8'h00;
-        mem[4'hD] = 8'h01;  // F(1)=1
-        mem[4'hE] = 8'h01;  // F(2)=1
-        mem[4'hF] = 8'h02;  // F(3)=2
+        mem[4'hD] = 8'h01;  
+        mem[4'hE] = 8'h01;  
+        mem[4'hF] = 8'h02;  
     end
 
     
@@ -88,7 +88,6 @@ module ram #(
         end
     end
 
-    // CPU write (SAP clock domain, RUN mode only)
     always @(posedge sap_clk) begin
         if (!rst && MEM_WR && !prog_mode)
             mem[MEM_ADDR] <= MEM_DOUT;
