@@ -1,6 +1,6 @@
 module clock_module (
     input  wire        clk_100mhz,
-    input  wire        rst,          // Active HIGH reset
+    input  wire        rst,          
     input  wire [1:0]  speed_sel,
     input  wire        manual_step,
     input  wire        hlt,
@@ -17,7 +17,7 @@ module clock_module (
     reg [25:0] max_count;
     reg        auto_clk;
 
-    // Select clock speed
+  
     always @(*) begin
         case (speed_sel)
             2'b00: max_count = CNT_1HZ;
@@ -27,7 +27,7 @@ module clock_module (
         endcase
     end
 
-    // Clock divider
+  
     always @(posedge clk_100mhz) begin
 
         if (rst) begin
@@ -46,10 +46,7 @@ module clock_module (
 
     end
 
-    // ---------------------------------------------------
-    // Manual step button edge detector
-    // ---------------------------------------------------
-
+  
     reg btn_prev;
 
     wire step_pulse;
@@ -66,10 +63,7 @@ module clock_module (
 
     end
 
-    // ---------------------------------------------------
-    // Clock freeze logic
-    // ---------------------------------------------------
-
+ 
     wire clock_frozen;
 
     assign clock_frozen = hlt | prog_mode;
@@ -81,8 +75,6 @@ module clock_module (
 
         else if (!clock_frozen)
             clk_out <= auto_clk | step_pulse;
-
-        // if frozen, hold previous value
 
     end
 
