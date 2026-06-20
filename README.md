@@ -80,19 +80,20 @@ AMD Xilinx Spartan-7
 | 0x2    | ADD      | Addition               |
 | 0x3    | SUB      | Subtraction            |
 | 0x4    | ANA      | AND                    |
-| 0x5    | XRA      | XOR                    |
+| 0x5    | STA      | Store                  |
 | 0x6    | ORA      | OR                     |
 | 0x7    | CMA      | Complement Accumulator |
 | 0x8    | INR      | Increment              |
 | 0x9    | DCR      | Decrement              |
 | 0xA    | SHL      | Shift Left             |
 | 0xB    | SHR      | Shift Right            |
-| 0xC    | NAND     | NAND                   |
-| 0xD    | NOR      | NOR                    |
+| 0xC    | JMP      | Jump                   |
+| 0xD    | JC       | Jump if carry          |
 | 0xE    | OUT      | Output                 |
 | 0xF    | HLT      | Halt                   |
 
 ---
+<img width="1086" height="670" alt="image" src="https://github.com/user-attachments/assets/6e9ff684-ca62-4847-ad52-dcb1a0244068" />
 
 ## ALU Operations
 
