@@ -11,7 +11,7 @@ module control_unit_tb;
     wire AI,AO,ALO,BI,OI,FE,HLT;
     wire [2:0] t_state;
 
-    // DUT
+    
     control_unit dut (
         .clk(clk),
         .rst(rst),
@@ -37,13 +37,13 @@ module control_unit_tb;
         .t_state(t_state)
     );
 
-    // Clock generation
+   
     initial
         clk = 0;
 
     always #5 clk = ~clk;
 
-    // Test sequence
+   
     initial begin
 
         $display("Starting Control Unit Test");
@@ -55,33 +55,22 @@ module control_unit_tb;
         #20;
         rst = 0;
 
-        // -------------------------
-        // Test LDA
-        // -------------------------
+       
         opcode = 4'h1;
         #70;
 
-        // -------------------------
-        // Test ADD
-        // -------------------------
         opcode = 4'h2;
         #70;
 
-        // -------------------------
-        // Test CMA (Unary)
-        // -------------------------
+      
         opcode = 4'h7;
         #70;
 
-        // -------------------------
-        // Test OUT
-        // -------------------------
+       
         opcode = 4'hE;
         #70;
 
-        // -------------------------
-        // Test HLT
-        // -------------------------
+       
         opcode = 4'hF;
         #70;
 
@@ -89,7 +78,7 @@ module control_unit_tb;
 
     end
 
-    // Monitor
+   
     initial begin
         $monitor(
         "Time=%0t T=%0d OPCODE=%h MI=%b RO=%b II=%b IO=%b AI=%b BI=%b ALO=%b OI=%b FE=%b HLT=%b",
