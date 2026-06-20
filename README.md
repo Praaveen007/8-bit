@@ -19,8 +19,6 @@ The processor follows a shared-bus SAP architecture and extends the traditional 
 ---
 
 <img width="1536" height="1024" alt="ChatGPT Image Jun 20, 2026, 04_26_37 AM" src="https://github.com/user-attachments/assets/e2306edd-489c-4814-b952-752163eab75c" />
-<img width="1536" height="1024" alt="WhatsApp Image 2026-06-20 at 9 49 16 AM" src="https://github.com/user-attachments/assets/f11fbc53-70e3-48a5-849d-527048fd5679" />
-
 
 
 ## Key Features
@@ -41,6 +39,7 @@ The processor follows a shared-bus SAP architecture and extends the traditional 
 * Vivado simulation and synthesis
 ---
 <img width="1536" height="1024" alt="ChatGPT Image Jun 18, 2026, 04_54_40 PM" src="https://github.com/user-attachments/assets/8d5244a0-d54a-4ae3-a13e-26bdea95a819" />
+<img width="1536" height="1024" alt="WhatsApp Image 2026-06-20 at 9 49 16 AM" src="https://github.com/user-attachments/assets/f11fbc53-70e3-48a5-849d-527048fd5679" />
 
 ## Target FPGA
 
