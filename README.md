@@ -18,7 +18,8 @@ The processor follows a shared-bus SAP architecture and extends the traditional 
 
 ---
 
-<img width="1536" height="1024" alt="ChatGPT Image Jun 20, 2026, 04_26_37 AM" src="https://github.com/user-attachments/assets/e2306edd-489c-4814-b952-752163eab75c" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/602119dc-a94c-4c60-b48f-0e2881b630e6" />
+
 
 
 ## Key Features
@@ -38,7 +39,7 @@ The processor follows a shared-bus SAP architecture and extends the traditional 
 * FPGA implementation on Spartan-7
 * Vivado simulation and synthesis
 ---
-<img width="1536" height="1024" alt="ChatGPT Image Jun 18, 2026, 04_54_40 PM" src="https://github.com/user-attachments/assets/8d5244a0-d54a-4ae3-a13e-26bdea95a819" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/7df82aec-950b-4daf-917d-11a028a27fa2" />
 
 
 ## Target FPGA
@@ -137,7 +138,8 @@ T5:
 ALU Execution / Register Update
 
 ---
-<img width="1536" height="1024" alt="ChatGPT Image Jun 18, 2026, 05_34_18 PM" src="https://github.com/user-attachments/assets/22a9627b-3e68-4ea1-bd89-a8f7fcbd9e67" />
+<img width="1535" height="1024" alt="image" src="https://github.com/user-attachments/assets/97e4348f-f764-4844-8fe3-22c654da7cf0" />
+
 
 ## Flags
 
@@ -194,6 +196,10 @@ Vivado Bitstream Generator
 <img width="1919" height="1011" alt="Screenshot 2026-06-20 003701 (1)" src="https://github.com/user-attachments/assets/707c8386-a5ee-419e-8711-31c05adda6ca" />
 <img width="1919" height="827" alt="Screenshot 2026-06-20 003717 (1)" src="https://github.com/user-attachments/assets/f4053b88-5aab-462c-a5a4-4c2a102ca9e8" />
 <img width="1919" height="1014" alt="Screenshot 2026-06-20 003710" src="https://github.com/user-attachments/assets/f97bb5f4-6675-4c0f-aeda-1a4e136b0015" />
+
+## current Advancement 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/552b66c1-436e-4a42-9e6c-9c9eccad69aa" />
+
 
 ## Future Enhancements
 
