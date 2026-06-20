@@ -100,15 +100,15 @@ AMD Xilinx Spartan-7
 ADD,
 SUB,
 AND,
-XOR,
+STA,
 OR,
 NOT,
 INC,
 DEC,
 SHL,
 SHR,
-NAND,
-NOR,
+JMP,
+JC,
 
 ---
 
