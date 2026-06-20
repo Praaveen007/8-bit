@@ -11,7 +11,7 @@ module a_register_tb;
     wire [7:0] bus_out;
     wire [7:0] a_val;
 
-    // DUT
+   
     a_register uut (
         .clk(clk),
         .rst(rst),
@@ -22,7 +22,6 @@ module a_register_tb;
         .a_val(a_val)
     );
 
-    // Clock Generation (10ns period)
     initial begin
         clk = 0;
         forever #5 clk = ~clk;
@@ -30,19 +29,17 @@ module a_register_tb;
 
     initial begin
 
-        // Initialize
+     
         rst    = 1;
         AI     = 0;
         AO     = 0;
         bus_in = 8'h00;
 
-        // Reset
+     
         #10;
         rst = 0;
 
-        // -------------------------
-        // Load 28 into A register
-        // -------------------------
+       
         AI     = 1;
         bus_in = 8'd28;
         #10;
@@ -50,16 +47,13 @@ module a_register_tb;
         AI = 0;
         #10;
 
-        // Put A onto bus
+       
         AO = 1;
         #10;
 
         AO = 0;
         #10;
 
-        // -------------------------
-        // Load 14 into A register
-        // -------------------------
         AI     = 1;
         bus_in = 8'd14;
         #10;
@@ -67,16 +61,14 @@ module a_register_tb;
         AI = 0;
         #10;
 
-        // Put A onto bus
+       
         AO = 1;
         #10;
 
         AO = 0;
         #10;
 
-        // -------------------------
-        // Load 255 into A register
-        // -------------------------
+       
         AI     = 1;
         bus_in = 8'd255;
         #10;
@@ -84,16 +76,14 @@ module a_register_tb;
         AI = 0;
         #10;
 
-        // Put A onto bus
+     
         AO = 1;
         #10;
 
         AO = 0;
         #10;
 
-        // -------------------------
-        // Apply Reset Again
-        // -------------------------
+        
         rst = 1;
         #10;
 
