@@ -12,7 +12,7 @@ module instruction_register_tb;
     wire [3:0]  opcode;
     wire [3:0]  operand;
 
-    // DUT
+   
     instruction_register uut (
         .clk(clk),
         .rst(rst),
@@ -32,19 +32,16 @@ module instruction_register_tb;
 
     initial begin
 
-        // Initialize
         rst    = 1'b1;
         II     = 1'b0;
         IO     = 1'b0;
         bus_in = 8'h00;
 
-        // Reset
+     
         #20;
         rst = 1'b0;
 
-        // --------------------------------
-        // Load LDA 14 (0001_1110)
-        // --------------------------------
+        
         II     = 1'b1;
         bus_in = 8'b0001_1110;
         #10;
@@ -52,16 +49,12 @@ module instruction_register_tb;
         II = 1'b0;
         #10;
 
-        // Enable operand onto bus
         IO = 1'b1;
         #10;
 
         IO = 1'b0;
         #10;
 
-        // --------------------------------
-        // Load ADD 15 (0010_1111)
-        // --------------------------------
         II     = 1'b1;
         bus_in = 8'b0010_1111;
         #10;
@@ -75,9 +68,7 @@ module instruction_register_tb;
         IO = 1'b0;
         #10;
 
-        // --------------------------------
-        // Load OUT (1110_0000)
-        // --------------------------------
+        
         II     = 1'b1;
         bus_in = 8'b1110_0000;
         #10;
@@ -91,9 +82,6 @@ module instruction_register_tb;
         IO = 1'b0;
         #10;
 
-        // --------------------------------
-        // Apply Reset Again
-        // --------------------------------
         rst = 1'b1;
         #10;
 
