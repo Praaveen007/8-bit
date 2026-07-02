@@ -200,8 +200,6 @@ Vivado Bitstream Generator
 
 ## Live Hardware Demo
 
-## 🎥 Live Hardware Demo
-
 <p align="center">
   <img src="Sources/Videos/Output%20video.gif" width="700"/>
 </p>
