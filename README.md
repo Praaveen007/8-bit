@@ -222,3 +222,8 @@ Vivado Bitstream Generator
 
 ---
 
+## Contributors
+
+- [Rahul Sivesh S](https://github.com/Rahul-Sivesh)
+- [Praaveen Hari GS](https://github.com/Praaveen007)
+- [Indrapriyadharshani MG](https://github.com/INDRA2006MG)
